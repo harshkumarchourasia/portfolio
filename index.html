@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - AI Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Manual dark mode fallback */
+        .dark {
+            --bg-color: #1a202c;
+            --text-color: #f7fafc;
+            --border-color: #2d3748;
+        }
+
+        .dark body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .dark .dark-bg {
+            background-color: #2d3748;
+        }
+
+        .dark .dark-border {
+            border-color: var(--border-color);
+        }
+
+        .dark .dark-text {
+            color: #a0aec0;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <div class="max-w-2xl mx-auto px-4 py-12">
+        <!-- Dark Mode Toggle -->
+        <button onclick="toggleDarkMode()" class="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark-bg">
+            🌓
+        </button>
+
+        <!-- Header -->
+        <header class="mb-16 text-center">
+            <h1 class="text-3xl font-medium mb-2">John Doe</h1>
+            <p class="text-gray-600 dark-text mb-4">Machine Learning Engineer</p>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank"
+                class="inline-flex items-center text-blue-600 dark-text hover:text-blue-400 transition-colors">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+                LinkedIn
+            </a>
+        </header>
+
+        <!-- Projects -->
+        <section class="mb-16">
+            <h2 class="text-xl font-medium mb-6">Projects</h2>
+            <div class="space-y-6">
+                <div class="border-b dark-border pb-6">
+                    <h3 class="font-medium mb-2">Computer Vision System</h3>
+                    <p class="text-gray-600 dark-text mb-3">Real-time object detection with YOLO architecture</p>
+                    <a href="#" class="text-blue-600 dark-text hover:text-blue-400 transition-colors text-sm">View
+                        Project →</a>
+                </div>
+                <div class="border-b dark-border pb-6">
+                    <h3 class="font-medium mb-2">NLP Pipeline</h3>
+                    <p class="text-gray-600 dark-text mb-3">Transformer-based text classification model</p>
+                    <a href="#" class="text-blue-600 dark-text hover:text-blue-400 transition-colors text-sm">View
+                        Project →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="mb-16">
+            <h2 class="text-xl font-medium mb-6">Technical Skills</h2>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-1 bg-gray-100 dark-bg rounded-full text-sm dark-text">PyTorch</span>
+                <span class="px-3 py-1 bg-gray-100 dark-bg rounded-full text-sm dark-text">TensorFlow</span>
+                <span class="px-3 py-1 bg-gray-100 dark-bg rounded-full text-sm dark-text">Python</span>
+                <span class="px-3 py-1 bg-gray-100 dark-bg rounded-full text-sm dark-text">MLOps</span>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section>
+            <h2 class="text-xl font-medium mb-6">Contact</h2>
+            <p class="text-gray-600 dark-text">
+                <a href="mailto:john.doe@example.com"
+                    class="border-b border-gray-400 dark-border hover:border-blue-400 transition-colors">
+                    john.doe@example.com
+                </a>
+            </p>
+        </section>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark')
+                ? 'dark'
+                : 'light';
+        }
+
+        // Initialize theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+
+</html>
